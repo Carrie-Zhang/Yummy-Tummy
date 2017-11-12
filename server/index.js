@@ -15,8 +15,6 @@ app.post('/items', function(req, res) {
     if(err) {
       console.log(err);
     } else {
-      console.log('*******restaurants to save into db: ', restaurants);
-      console.log('**********restaurants.restaurants is an array: ', Array.isArray(restaurants['restaurants']));
       database.save(restaurants['restaurants']);  
     }
 	 res.end();

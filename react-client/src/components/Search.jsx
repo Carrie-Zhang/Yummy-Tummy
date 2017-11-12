@@ -17,20 +17,13 @@ class Search extends React.Component {
   }
 
   search() {
-  	console.log('in Search Component');
   	this.props.onSearch(this.state.term);
   }
 
   render() {
   	return (<div>
-  		<br>
-  		</br>
-  	
-
-        Search Restaurants: <input value={this.state.term} onChange={this.onChange}/>     
+        Search Restaurants by cuisines: <input value={this.state.term} onChange={this.onChange}/>     
        	<button onClick={this.search}> Search </button>
-
- 
       </div>)
   }
 

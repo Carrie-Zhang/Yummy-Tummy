@@ -19,20 +19,19 @@ var restaurantSchema = mongoose.Schema({
   name: String,
   url: String,
   cuisines: String,
-  price_range: Number
+  user_rating: String
 });
 
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 var save = function(restaurants) {
-  //console.log('---------- passed in restaurant in save func inside db is an array?: ', Array.isArray(restaurants));
   restaurants.forEach(restaurant => {
     restaurant = new Restaurant({
       id: restaurant.restaurant.id,
       name: restaurant.restaurant.name,
       url: restaurant.restaurant.url,
       cuisines: restaurant.restaurant.cuisines,
-      price_range: restaurant.restaurant.price_range
+      user_rating: restaurant.restaurant.user_rating.aggregate_rating
     });
 
     restaurant.save(function(err, restaurant) {
@@ -50,7 +49,7 @@ var selectAll = function(callback) {
     }
   })
   .limit(20)
-  .sort({price_range: -1});
+  .sort({user_rating: -1});
 };
 
 module.exports.save = save;

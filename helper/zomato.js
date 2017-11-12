@@ -7,7 +7,6 @@ var getRestsByCuisine = function(cuisine, callback) {
 		method: 'GET',
 		uri: `https://developers.zomato.com/api/v2.1/search?q=${cuisine}`,
 		headers: { 
-			'User-Agent': 'request',
 			'user-key': `${token.Token}`,
 			'Accept': 'application/json'
 		}

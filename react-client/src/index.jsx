@@ -50,12 +50,11 @@ class App extends React.Component {
     });
   }
 
-
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>Yummy Tummy</h1>
       <Search onSearch={this.search}/>
+      <List items={this.state.items}/>
     </div>)
   }
 }
