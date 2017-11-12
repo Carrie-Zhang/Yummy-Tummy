@@ -9,28 +9,28 @@ class Search extends React.Component {
   		term: ''
   	}
   	this.onChange = this.onChange.bind(this);
-  	this.onChange = this.search.bind(this);
+  	this.search = this.search.bind(this);
   }
 
   onChange(e) {
-  	console.log('onChange: ', e.target.value)
-    this.setState({ items: e.target.value });
+    this.setState({ term: e.target.value });
   }
 
   search() {
-  	this.props.onSearch(this.state.items);
+  	console.log('in Search Component');
+  	this.props.onSearch(this.state.term);
   }
 
   render() {
   	return (<div>
   		<br>
   		</br>
-  		<form>
-    	<label>
-        Search Restaurants: <input value={this.term} onChange={this.onChange}/>     
-       	<button onClick={this.props.search}> Search </button>
-       	</label>
-       </form>
+  	
+
+        Search Restaurants: <input value={this.state.term} onChange={this.onChange}/>     
+       	<button onClick={this.search}> Search </button>
+
+ 
       </div>)
   }
 
